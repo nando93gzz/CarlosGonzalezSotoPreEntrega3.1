@@ -1,67 +1,14 @@
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>profesores</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Enlazar una hoja de estilos CSS (opcional) -->
-</head>
-<body>
-      
-    <!-- Encabezado -->
-    <header>
-        <h1>profesores</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/acerca">Acerca</a></li>
-                <li><a href="/contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Contenido principal -->
-    <main>
-        <section>
-            <h2>Bienvenido</h2>
-            <p>¡Hola! Esta es una página web creada con HTML5.</p>
-
-            {% extends 'base.html' %}
-
-            {% block title %}Agregar Libro{% endblock %}
+{% block title %}Agregar Libro{% endblock %}
             
-            {% block content %}
-            <h2>Agregar Libro</h2>
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Guardar</button>
-            </form>
-            {% endblock %}
-
-
-
-        </section>
-
-        <section>
-            <h2>Características de HTML5</h2>
-            <ul>
-                <li>Etiquetas semánticas para una mejor estructura</li>
-                <li>Soporte nativo para video y audio</li>
-                <li>Canvas para gráficos y animaciones</li>
-                <li>Formularios mejorados</li>
-                <li>APIs para geolocalización, almacenamiento local, etc.</li>
-            </ul>
-        </section>
-    </main>
-
-    <!-- Pie de página -->
-    <footer>
-        <p>Derechos de autor © 2023. Todos los derechos reservados.</p>
-    </footer>
-
-    <!-- Scripts (opcional) -->
-    <script src="main.js"></script>
-</body>
-</html> 
+{% block content %}
+    <section>
+        <h2>Agregar Libro</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Guardar</button>
+        </form>
+    </section>
+{% endblock %}

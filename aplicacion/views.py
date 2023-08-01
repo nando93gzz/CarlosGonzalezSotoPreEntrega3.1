@@ -13,19 +13,19 @@ def agregar_libro(request):
             return redirect('agregar_libro')
     else:
         form = LibroForm()
-    return render(request, 'agregar_libro.html', {'form': form})
+    return render(request, 'aplicacion/agregar_libro.html', {'form': form})
 
 def buscar_libro(request):
     if request.method == 'POST':
         buscar = request.POST.get('buscar')
         libros = Libro.objects.filter(titulo__icontains=buscar)
-        return render(request, 'resultado_busqueda.html', {'libros': libros})
-    return render(request, 'buscar_libro.html')
+        return render(request, 'aplicacion/resultado_busqueda.html', {'libros': libros})
+    return render(request, 'aplicacion/buscar_libro.html')
 
 def eliminar_libro(request, libro_id):
     libro = get_object_or_404(Libro, id=libro_id)
     libro.delete()
-    return redirect('buscar_libro')
+    return redirect('aplicacion/buscar_libro')
 
 
 
