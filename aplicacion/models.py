@@ -1,40 +1,17 @@
 from django.db import models
 
-# Create your models here.
-class Curso(models.Model):
-    nombre = models.CharField(max_length=50)
-    comision = models.IntegerField()
-
-class Estudiante(models.Model):
-    nombre = models.CharField(max_length=50)
-    apellido = models.CharField(max_length=50)
-    email = models.EmailField()
-
-class Profesor(models.Model):
-    nombre = models.CharField(max_length=50)
-    apellido = models.CharField(max_length=50)
-    email = models.EmailField()
-    profesion = models.CharField(max_length=50)
-
-class Entregable(models.Model):
-    nombre = models.CharField(max_length=50)
-    fechaEntrega = models.DateField()
-    entregado = models.BooleanField()   
-
-##############################
 class Libro(models.Model):
-    titulo = models.CharField(max_length=100)
+    titulo = models.CharField(max_length=200)
     autor = models.CharField(max_length=100)
-    # Otros campos relacionados con libros
+    contenido = models.TextField()
+    
 
-    class Meta:
-        abstract = True
+    def __str__(self):
+        return self.titulo
 
 class LibroTexto(Libro):
-    asignatura = models.CharField(max_length=100)
+    tema = models.CharField(max_length=100)
     nivel = models.CharField(max_length=50)
-    # Otros campos específicos de libros de texto
 
 class LibroReferencia(Libro):
-    editorial = models.CharField(max_length=100)
-    # Otros campos específicos de libros de referencia
+    isbn = models.CharField(max_length=13)

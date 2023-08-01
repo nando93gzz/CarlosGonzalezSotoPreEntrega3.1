@@ -1,0 +1,21 @@
+<!-- aplicacion/templates/aplicacion/eliminar_libro.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eliminar Libro</title>
+</head>
+<body>
+    <h1>Eliminar Libro</h1>
+    <p>Estás a punto de eliminar el siguiente libro:</p>
+    <p>Título: {{ libro.titulo }}</p>
+    <p>Autor: {{ libro.autor }}</p>
+    <!-- Agrega otros detalles del libro si los tienes -->
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Eliminar">
+    </form>
+    <a href="{% url 'buscar_libro' %}">Cancelar</a>
+</body>
+</html>

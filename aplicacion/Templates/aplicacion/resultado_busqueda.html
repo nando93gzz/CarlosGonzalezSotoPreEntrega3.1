@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Resultados de la búsqueda{% endblock %}
+
+{% block content %}
+<h2>Resultados de la búsqueda</h2>
+<h3>Libros encontrados:</h3>
+<ul>
+    {% for libro in libros %}
+    <li>{{ libro.titulo }} - {{ libro.autor }}</li>
+    <a href="{% url 'eliminar_libro' libro.id %}">Eliminar</a>
+    {% endfor %}
+</ul>
+{% endblock %}

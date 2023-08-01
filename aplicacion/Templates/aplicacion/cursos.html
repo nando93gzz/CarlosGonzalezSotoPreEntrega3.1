@@ -8,33 +8,7 @@
 <body bgcolor="lightgreen">
     <h1>Cursos</h1>
     
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Buscar">
-    </form>
-    
-    {% if resultados %}
-        <h2>Resultados de búsqueda:</h2>
-        <ul>
-            {% for libro in resultados %}
-                <li>{{ libro.titulo }} - {{ libro.autor }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Guardar">
-    </form>
-
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Guardar">
-    </form>
-
-
+  
     {% for curso in cursos %}
     <ul>
         <li>
